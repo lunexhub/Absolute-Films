@@ -48,10 +48,10 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button variant="hero" size="lg" asChild>
-              <Link to="/work"><Play className="w-4 h-4" /> Watch Reel</Link>
+              <Link to="/contact">Get a Quote <ArrowRight className="w-4 h-4" /></Link>
             </Button>
             <Button variant="outlineGold" size="lg" asChild>
-              <Link to="/contact">Start a Project <ArrowRight className="w-4 h-4" /></Link>
+              <Link to="/work"><Play className="w-4 h-4" /> Watch Reel</Link>
             </Button>
           </div>
         </div>

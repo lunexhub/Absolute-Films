@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { Volume2, VolumeX, X } from "lucide-react";
+import { Volume2, VolumeX, X, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const YT_ID = "pKkj-0fSkLs";
-
 const STORAGE_KEY = "absolutefilms-splash-seen";
+const YT_THUMB = `https://img.youtube.com/vi/${YT_ID}/hqdefault.jpg`;
 
 const SplashIntro = () => {
   const [open, setOpen] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
@@ -17,14 +18,8 @@ const SplashIntro = () => {
   }, []);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   const close = () => {
@@ -38,54 +33,77 @@ const SplashIntro = () => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-background/70 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fade-up"
+      className="fixed inset-0 z-[100] bg-background/40 flex items-center justify-center p-4"
       onClick={close}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-3xl rounded-2xl overflow-hidden border border-gold/30 shadow-gold bg-background"
+        className="relative w-full max-w-xs rounded-2xl overflow-hidden border border-gold/30 shadow-gold bg-background animate-fade-up"
       >
-        {/* 16:9 video */}
-        <div className="relative aspect-video overflow-hidden">
-          <iframe
-            key={muted ? "m" : "u"}
-            src={ytSrc}
-            title="Absolute Films Showreel"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            frameBorder={0}
-            className="absolute inset-0 w-full h-full"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent pointer-events-none" />
+        {/* Video area — thumbnail until user clicks play */}
+        <div className="relative aspect-video bg-black overflow-hidden">
+          {playing ? (
+            <iframe
+              key={muted ? "m" : "u"}
+              src={ytSrc}
+              title="Absolute Films Showreel"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              frameBorder={0}
+              className="absolute inset-0 w-full h-full"
+            />
+          ) : (
+            <>
+              <img
+                src={YT_THUMB}
+                alt="Absolute Films Showreel thumbnail"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <button
+                  onClick={() => setPlaying(true)}
+                  className="w-12 h-12 rounded-full bg-gold/90 flex items-center justify-center hover:scale-110 transition-transform"
+                  aria-label="Play showreel"
+                >
+                  <Play className="w-5 h-5 text-background fill-background ml-0.5" />
+                </button>
+              </div>
+            </>
+          )}
 
-          {/* Close X */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
+
+          {/* Close */}
           <button
             onClick={close}
             aria-label="Close intro"
-            className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-background/70 border border-gold/40 text-gold flex items-center justify-center hover:bg-gold/10 transition-colors"
+            className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-background/70 border border-gold/40 text-gold flex items-center justify-center hover:bg-gold/10 transition-colors"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3 h-3" />
           </button>
 
-          {/* Mute toggle */}
-          <button
-            onClick={() => setMuted((m) => !m)}
-            aria-label={muted ? "Unmute" : "Mute"}
-            className="absolute top-3 left-3 z-10 w-10 h-10 rounded-full bg-background/70 border border-gold/40 text-gold flex items-center justify-center hover:bg-gold/10 transition-colors"
-          >
-            {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-          </button>
+          {/* Mute — only shown when video is playing */}
+          {playing && (
+            <button
+              onClick={() => setMuted((m) => !m)}
+              aria-label={muted ? "Unmute" : "Mute"}
+              className="absolute top-2 left-2 z-10 w-8 h-8 rounded-full bg-background/70 border border-gold/40 text-gold flex items-center justify-center hover:bg-gold/10 transition-colors"
+            >
+              {muted ? <VolumeX className="w-3 h-3" /> : <Volume2 className="w-3 h-3" />}
+            </button>
+          )}
         </div>
 
         {/* Bottom content */}
-        <div className="relative px-6 py-6 md:px-8 md:py-7 text-center">
-          <div className="font-serif-display text-3xl md:text-4xl mb-2 tracking-wide">
+        <div className="px-5 py-5 text-center">
+          <div className="font-serif-display text-2xl mb-1 tracking-wide">
             <span className="text-gradient-gold">Absolute</span> Films
           </div>
-          <p className="text-gold tracking-[0.4em] text-[10px] uppercase mb-4 animate-shimmer">
+          <p className="text-gold tracking-[0.4em] text-[9px] uppercase mb-3 animate-shimmer">
             You step up · We set up
           </p>
-          <Button variant="hero" size="lg" onClick={close}>
+          <Button variant="hero" size="default" onClick={close} className="w-full">
             Enter Website
           </Button>
         </div>
