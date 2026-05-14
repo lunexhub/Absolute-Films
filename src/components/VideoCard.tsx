@@ -5,10 +5,11 @@ import type { VideoItem } from "@/data/videos";
 interface Props {
   video: VideoItem;
   className?: string;
+  autoplay?: boolean;
 }
 
-const VideoCard = ({ video, className = "" }: Props) => {
-  const [playing, setPlaying] = useState(false);
+const VideoCard = ({ video, className = "", autoplay = false }: Props) => {
+  const [playing, setPlaying] = useState(autoplay);
   const [thumbIdx, setThumbIdx] = useState(0);
   const [useVideoPreview, setUseVideoPreview] = useState(false);
 

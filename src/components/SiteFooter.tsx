@@ -6,9 +6,7 @@ const SiteFooter = () => {
     <footer className="border-t border-border py-12 mt-12">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
         <div>
-          <p className="font-serif-display text-2xl mb-3">
-            <span className="text-gradient-gold">Absolute</span> Films
-          </p>
+          <img src="/Logo.png" alt="Absolute Films" className="h-14 w-auto mb-3" />
           <p className="text-sm text-muted-foreground max-w-xs">
             You step up. We set up. Together we tell your story. Video production, branding, PR and corporate communications since 2005.
           </p>
