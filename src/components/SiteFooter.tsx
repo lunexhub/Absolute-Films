@@ -33,8 +33,8 @@ const SiteFooter = () => {
       </div>
       <div className="container mx-auto px-6 mt-10 pt-6 border-t border-border/50 text-xs text-muted-foreground flex flex-col md:flex-row items-center justify-between gap-2">
         <p>© 2026 Absolute Films (Pty) Ltd. All rights reserved.</p>
-        <p className="tracking-widest uppercase">You step up · We set up</p>
         <p>Built by <a href="https://www.lunexweb.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Lunexweb</a></p>
+        <p className="tracking-widest uppercase">You step up · We set up</p>
       </div>
     </footer>
   );
