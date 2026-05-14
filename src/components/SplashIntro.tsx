@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import { Volume2, VolumeX, X, Play } from "lucide-react";
+import { Volume2, VolumeX, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const YT_ID = "pKkj-0fSkLs";
 const STORAGE_KEY = "absolutefilms-splash-seen";
-const YT_THUMB = `https://img.youtube.com/vi/${YT_ID}/hqdefault.jpg`;
 
 const SplashIntro = () => {
   const [open, setOpen] = useState(false);
-  const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
@@ -40,37 +38,17 @@ const SplashIntro = () => {
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-xs rounded-2xl overflow-hidden border border-gold/30 shadow-gold bg-background animate-fade-up"
       >
-        {/* Video area — thumbnail until user clicks play */}
+        {/* Video — autoplays immediately, muted by default */}
         <div className="relative aspect-video bg-black overflow-hidden">
-          {playing ? (
-            <iframe
-              key={muted ? "m" : "u"}
-              src={ytSrc}
-              title="Absolute Films Showreel"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              frameBorder={0}
-              className="absolute inset-0 w-full h-full"
-            />
-          ) : (
-            <>
-              <img
-                src={YT_THUMB}
-                alt="Absolute Films Showreel thumbnail"
-                className="w-full h-full object-cover"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <button
-                  onClick={() => setPlaying(true)}
-                  className="w-12 h-12 rounded-full bg-gold/90 flex items-center justify-center hover:scale-110 transition-transform"
-                  aria-label="Play showreel"
-                >
-                  <Play className="w-5 h-5 text-background fill-background ml-0.5" />
-                </button>
-              </div>
-            </>
-          )}
+          <iframe
+            key={muted ? "m" : "u"}
+            src={ytSrc}
+            title="Absolute Films Showreel"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            frameBorder={0}
+            className="absolute inset-0 w-full h-full"
+          />
 
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
 
@@ -83,16 +61,14 @@ const SplashIntro = () => {
             <X className="w-3 h-3" />
           </button>
 
-          {/* Mute — only shown when video is playing */}
-          {playing && (
-            <button
-              onClick={() => setMuted((m) => !m)}
-              aria-label={muted ? "Unmute" : "Mute"}
-              className="absolute top-2 left-2 z-10 w-8 h-8 rounded-full bg-background/70 border border-gold/40 text-gold flex items-center justify-center hover:bg-gold/10 transition-colors"
-            >
-              {muted ? <VolumeX className="w-3 h-3" /> : <Volume2 className="w-3 h-3" />}
-            </button>
-          )}
+          {/* Mute toggle */}
+          <button
+            onClick={() => setMuted((m) => !m)}
+            aria-label={muted ? "Unmute" : "Mute"}
+            className="absolute top-2 left-2 z-10 w-8 h-8 rounded-full bg-background/70 border border-gold/40 text-gold flex items-center justify-center hover:bg-gold/10 transition-colors"
+          >
+            {muted ? <VolumeX className="w-3 h-3" /> : <Volume2 className="w-3 h-3" />}
+          </button>
         </div>
 
         {/* Bottom content */}
