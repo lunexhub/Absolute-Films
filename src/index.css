@@ -58,6 +58,7 @@
 }
 
 @layer base {
+  html { scroll-behavior: smooth; }
   * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
@@ -131,6 +132,18 @@
   .animate-pulse-glow {
     animation: pulse-glow 2.5s ease-in-out infinite;
   }
+  .animate-fade-in {
+    animation: fadeIn 0.35s var(--transition-smooth) both;
+  }
+  .img-skeleton {
+    background: linear-gradient(90deg,
+      hsl(275 40% 12%),
+      hsl(275 40% 18%),
+      hsl(275 40% 12%)
+    );
+    background-size: 200% 100%;
+    animation: skeleton 1.6s ease-in-out infinite;
+  }
   .hero-scanline::after {
     content: '';
     position: absolute;
@@ -171,6 +184,21 @@
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px hsl(42 80% 60% / 0.3); }
   50%       { box-shadow: 0 0 40px hsl(42 80% 60% / 0.7); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes skeleton {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes slideImg {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-img {
+  animation: slideImg 0.3s var(--transition-smooth) both;
 }
 @keyframes scanline {
   0%   { transform: translateY(-100%); }
