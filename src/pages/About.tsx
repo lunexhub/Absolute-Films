@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import hero from "@/assets/hero-cinematic.jpg";
 
 const stats = [
-  { n: "20+", label: "Years in craft" },
+  { n: "10+", label: "Years in craft" },
   { n: "120+", label: "Productions" },
   { n: "40+", label: "Brands served" },
   { n: "10+", label: "Specialists" },
@@ -24,7 +24,7 @@ const pillars = [
   },
   {
     title: "Broadcast pedigree, boutique attention",
-    desc: "Rooted in two decades of national broadcast experience across SABC and eNCA, we apply the same standards of excellence to every client — regardless of project size or budget.",
+    desc: "Rooted in a decade of national broadcast experience across SABC and eNCA, we apply the same standards of excellence to every client — regardless of project size or budget.",
   },
   {
     title: "Delivery that travels",
@@ -34,7 +34,7 @@ const pillars = [
 
 const differentiators = [
   "Full-service: concept, production, post and distribution under one roof",
-  "Broadcast-trained director with 20+ years of national TV experience",
+  "Broadcast-trained director with 10+ years of national TV experience",
   "Live event capability with multi-camera, real-time switching",
   "Deep understanding of South African media & corporate landscape",
   "Flexible engagement — single projects or long-term retainers",
@@ -90,7 +90,7 @@ const About = () => {
               Absolute Films (Pty) Ltd is a dynamic, versatile company specializing in video production, corporate communication, digital media, public relations, branding and advertising.
             </p>
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              Founded in 2005 by Mashudu Eugene Ramachela — a seasoned broadcast luminary whose expertise spans South Africa's premier channels including SABC and ENCA — we focus on creativity, innovation and strategic thinking.
+              Founded in 2015 by Mashudu Eugene Ramachela — a seasoned broadcast luminary whose expertise spans South Africa's premier channels including SABC and ENCA — we focus on creativity, innovation and strategic thinking.
             </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               <span className="text-gold">Our vision:</span> to lead the digital media, audio-visual and corporate communications space globally. <span className="text-gold">Our mission:</span> translate every client's vision into reality with measurable results.

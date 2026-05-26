@@ -8,7 +8,7 @@ const SiteFooter = () => {
         <div>
           <img src="/Logo.png" alt="Absolute Films" className="h-14 w-auto mb-3" />
           <p className="text-sm text-muted-foreground max-w-xs">
-            You step up. We set up. Together we tell your story. Video production, branding, PR and corporate communications since 2005.
+            You step up. We set up. Together we tell your story. Video production, branding, PR and corporate communications since 2015.
           </p>
         </div>
         <div className="flex flex-col gap-2 text-sm">

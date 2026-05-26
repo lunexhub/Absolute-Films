@@ -101,7 +101,7 @@ const Home = () => {
 
         <div className="relative z-10 container mx-auto text-center px-6 animate-fade-up">
           <p className="text-gold tracking-[0.4em] text-xs md:text-sm uppercase mb-6 animate-shimmer">
-            Absolute Films · Since 2005
+            Absolute Films · Since 2015
           </p>
           <h1 className="font-serif-display text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-6">
             You step up.
