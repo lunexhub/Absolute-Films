@@ -4,7 +4,7 @@ import SiteNav from "./SiteNav";
 import SiteFooter from "./SiteFooter";
 import SplashIntro from "./SplashIntro";
 
-const WA_NUMBER = "27652239640";
+const WA_NUMBER = "27767762211";
 
 const SiteLayout = () => {
   const { pathname } = useLocation();

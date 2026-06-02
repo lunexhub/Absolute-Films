@@ -23,7 +23,7 @@ const SiteFooter = () => {
           <a href="mailto:info.absolutefilms@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors">
             <Mail className="w-4 h-4" /> info.absolutefilms@gmail.com
           </a>
-          <a href="tel:+27652239640" className="text-muted-foreground hover:text-gold transition-colors">+27 065 223 9640</a>
+          <a href="tel:+27652239640" className="text-muted-foreground hover:text-gold transition-colors">+27 76 776 2211</a>
           <p className="text-muted-foreground text-xs mt-1">36 Daeraad Street, Bonaero Park, Kempton Park 1619</p>
           <div className="flex items-center gap-4 mt-2">
             <a href="#" aria-label="Instagram" className="text-muted-foreground hover:text-gold transition-colors"><Instagram className="w-5 h-5" /></a>
