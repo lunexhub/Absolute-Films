@@ -164,6 +164,15 @@ const Contact = () => {
                     <p className="group-hover:text-gold transition-colors break-all text-sm">info.absolutefilms@gmail.com</p>
                   </div>
                 </a>
+                <a href="mailto:info@absolutefilms.co.za" className="flex items-start gap-4 group">
+                  <span className="flex items-center justify-center w-11 h-11 rounded-full bg-gradient-gold glow-gold shrink-0">
+                    <Mail className="w-4 h-4 text-primary-foreground" />
+                  </span>
+                  <div>
+                    <p className="text-xs tracking-widest uppercase text-gold mb-1">Email</p>
+                    <p className="group-hover:text-gold transition-colors break-all text-sm">info@absolutefilms.co.za</p>
+                  </div>
+                </a>
 
                 <a href="tel:+27767762211" className="flex items-start gap-4 group">
                   <span className="flex items-center justify-center w-11 h-11 rounded-full bg-gradient-gold glow-gold shrink-0">
